@@ -1,0 +1,21 @@
+<div class="container dropdown">
+  <div class="form-gr">
+    <select [(ngModel)]="selection" (change)="getSelectedCar()">
+      <option selected>Select a Model</option>
+      <option *ngFor="let opt of carsData"
+              [value]='opt.make'>{{opt.name}}
+      </option>
+    </select>
+  </div>
+  <br>
+  <div *ngIf="isCarSelected">
+    <select [(ngModel)]="FinalCar" (change)="finalCar()">
+      <option selected>Please select a Car</option>
+      <option *ngFor="let opt of selectedModel" [value]='opt.image'>{{opt.name}}
+      </option>
+    </select>
+  </div>
+</div>
+<br>
+
+<img src="{{FinalCar}}">
